@@ -1,0 +1,57 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type CPU {
+    socket: Int!
+    physical: Int!
+    logical: Int!
+    name: String!
+    ghz: String!
+    usage: String!
+}
+
+type RAM {
+    total: Int!
+    available: Int!
+    used: Int!
+    free: Int!
+    active: Int!
+    inactive: Int!
+    wired: Int!
+}
+
+type prettyRAM {
+    total: String!
+    available: String!
+    used: String!
+    free: String!
+    active: String!
+    inactive: String!
+    wired: String!
+}
+
+type Net {
+    name: String!
+    sent: Int!
+    recv: Int!
+    prettySent: String!
+    prettyRecv: String!
+}
+
+type Disk{
+
+}
+
+type Query {
+    cpu(interval: Int): CPU!
+    ram: RAM!
+    prettyRAM: prettyRAM!
+    totalNet(eachNic: Boolean!): [Net!]!
+    netRate(interval: Int!,eachNic: Boolean!): [Net!]!
+}
+
+
+
+#type Mutation {
+#}
